@@ -21,11 +21,27 @@ class Linear(Module):
 
     def __init__(self, in_features, out_features):
 
-        # Xavier初始化
+        # He初始化
         weight = np.random.randn(
             in_features,
             out_features
         ) * np.sqrt(2.0 / in_features)
+
+        #Xavier初始化,正态分布
+        # weight = np.random.randn(
+        #     in_features,
+        #     out_features
+        # ) * np.sqrt(
+        #     2.0 / (in_features * out_features)
+        # )
+
+        #Xavier初始化，均匀分布
+        # limit = np.sqrt(2.0 / (in_features + out_features))
+        # weight = np.random.uniform(
+        #     -limit,
+        #     limit,
+        #     size=(in_features, out_features)
+        # )
 
         bias = np.zeros(out_features)
 

@@ -9,6 +9,7 @@ layer = Linear(10,5)
 
 y = layer.forward(x)
 
+# print(layer.__dict__)
 print(y.shape)
 print(x.shape)
 print(layer.W.data.shape)
