@@ -7,15 +7,10 @@ from core.Parameter import Parameter
 class Linear(Module):
     """
     全连接层
-
     Y = XW + b
-
     X : (N, in_features)
-
     W : (in_features, out_features)
-
     b : (out_features,)
-
     Y : (N, out_features)
     """
 
@@ -56,11 +51,8 @@ class Linear(Module):
 
         """
         x.shape
-
         (batch_size, in_features)
-
         例如：
-
         (32,10)
         """
 
@@ -74,37 +66,22 @@ class Linear(Module):
 
         """
         grad_output
-
         dL/dY
-
         shape:
-
         (batch_size, out_features)
-
         例如：
-
         (32,5)
         """
 
-        #
-        # dW
-        #
-        # X^T @ grad_output
-        #
         # (10,32) @ (32,5)
-        #
         # = (10,5)
-        #
 
         self.W.grad = self.x.T @ grad_output
 
         #
         # db
-        #
         # 每个batch加起来
-        #
         # (32,5)
-        #
         # -> (5,)
         #
 
@@ -113,19 +90,11 @@ class Linear(Module):
             axis=0
         )
 
-        #
-        # dx
-        #
-        # grad_output @ W^T
-        #
+
         # (32,5)
-        #
         # @
-        #
         # (5,10)
-        #
         # =
-        #
         # (32,10)
         #
 

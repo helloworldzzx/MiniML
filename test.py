@@ -1,16 +1,11 @@
 import numpy as np
 
-from layers.Linear import Linear
+from layers.Relu import RelU
 
 
-x = np.random.randn(32,10)
+x = np.array([[-1, 2, -3], [4, -5, 6], [7, 8, 9]])
 
-layer = Linear(10,5)
+relu = RelU()
 
-y = layer.forward(x)
-
-# print(layer.__dict__)
-print(y.shape)
-print(x.shape)
-print(layer.W.data.shape)
-print(layer.b.data.shape)
+y = relu.forward(x)
+print(y)
